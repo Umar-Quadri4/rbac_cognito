@@ -12,12 +12,15 @@ const sendResponse = (statusCode, body) => {
 };
  
 const validateInput = (data) => {
-    const body = JSON.parse(data);
-    const { email, password } = body;
-    if (!email || !password || password.length < 6) {
+    try {
+        const { mobileNumber, otp } = JSON.parse(data);
+        if (!mobileNumber || !otp || typeof mobileNumber !== 'string' || typeof otp !== 'string' || mobileNumber.length !== 10 || otp.length !== 6) {
+            return false;
+        }
+        return true;
+    } catch (error) {
         return false;
     }
-    return true;
 };
  
 module.exports = {

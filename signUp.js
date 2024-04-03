@@ -58,7 +58,7 @@
 
 
 const AWS = require('aws-sdk');
-const { sendResponse } = require("../send");
+const { sendResponse } = require("./send");
 const crypto = require('crypto');
 require('dotenv').config();
  
